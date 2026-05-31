@@ -1,1 +1,304 @@
 @import "tailwindcss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    font-family: "Pretendard", sans-serif;
+}
+
+.app {
+    max-width: 412px;
+    min-height: 100dvh;
+    margin: 0 auto;
+    background: #f2f3f7;
+    overflow-y: auto;
+}
+
+.header {
+    height: 240px;
+    background: linear-gradient(rgba(18, 54, 120, 0.75),
+            rgba(18, 54, 120, 0.75)),
+        url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1") center/cover;
+}
+
+.overlay {
+    padding: 20px 16px;
+}
+
+.overlay h2 {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.row span {
+    width: 40px;
+    font-size: 14px;
+    color: #222;
+}
+
+.row strong {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.qr-box {
+    width: 90px;
+    height: 110px;
+    border: 3px solid #2196f3;
+    border-radius: 8px;
+}
+
+.menu-grid {
+    padding: 16px;
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.menu-card {
+    background: white;
+    border-radius: 18px;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.menu-card:hover {
+    transform: translateY(-2px);
+}
+
+.icon {
+    font-size: 28px;
+    color: #555;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-card p {
+    font-size: 12px;
+    text-align: center;
+    color: #333;
+}
+
+/* 좌석 예약 페이지 */
+
+.seat-page {
+    max-width: 412px;
+    min-height: 100dvh;
+    margin: 0 auto;
+    background: #f5f6f8;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+.seat-header {
+    height: 60px;
+    background: linear-gradient(135deg, #2048a4, #2c4fae);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+}
+
+.seat-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.crowd-card {
+    margin: 12px;
+    background: white;
+    border-radius: 20px;
+    padding: 14px;
+    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.orange {
+    color: orange;
+    font-weight: 700;
+}
+
+.title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: #ffe7c7;
+    color: #d68c1f;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+.crowd-center {
+    flex: 1;
+    padding: 0 8px;
+}
+
+.crowd-center h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.crowd-center p {
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.update {
+    color: #999;
+    font-size: 10px;
+    margin-top: 6px;
+}
+
+.crowd-right {
+    text-align: center;
+    min-width: 50px;
+}
+
+.crowd-right strong {
+    color: orange;
+    font-size: 18px;
+    display: block;
+}
+
+.crowd-right p {
+    font-size: 10px;
+    color: #666;
+}
+
+.legend {
+    background: white;
+    margin: 0 12px;
+    padding: 10px 12px;
+    border-radius: 16px;
+    font-size: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: space-around;
+}
+
+.room-list {
+    margin: 12px;
+}
+
+.room-card {
+    background: white;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    border-bottom: 1px solid #ececec;
+}
+
+.room-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.room-info {
+    flex: 1;
+}
+
+.room-info h4 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.room-info p {
+    font-size: 12px;
+    color: #555;
+}
+
+.floor {
+    background: #f1f1f1;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-size: 11px;
+    color: #666;
+}
+
+.arrow {
+    font-size: 22px;
+    color: #999;
+}
+
+.my-floating-btn {
+    position: fixed;
+    right: calc(50% - 412px/2 + 16px);
+    bottom: 24px;
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4f7cff, #2f52d1);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.progress-circle {
+    position: relative;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.circle-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    text-align: center;
+    color: #555;
+    line-height: 1.3;
+}
