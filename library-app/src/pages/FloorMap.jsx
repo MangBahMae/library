@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import floorMap from '../assets/kakaoTalk_3.png'
+import floorMap from '../assets/KakaoTalk_3.png'
 
 const floors = [1, 2, 3, 4, 5]
 
