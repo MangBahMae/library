@@ -91,6 +91,45 @@ export default function SeatMap2() {
             colScrollLeft.current - walk
     }
 
+    // 좌석배치도 터치
+    const handleTouchStart = (e) => {
+        isDown.current = true
+        startX.current = e.touches[0].pageX - containerRef.current.offsetLeft
+        scrollLeftRef.current = containerRef.current.scrollLeft
+    }
+
+    const handleTouchEnd = () => {
+        isDown.current = false
+    }
+
+    const handleTouchMove = (e) => {
+        if (!isDown.current) return
+
+        const x = e.touches[0].pageX - containerRef.current.offsetLeft
+        const walk = x - startX.current
+
+        containerRef.current.scrollLeft = scrollLeftRef.current - walk * 1.5
+    }
+
+    // 열 선택 터치
+    const handleColTouchStart = (e) => {
+        colIsDown.current = true
+        colStartX.current = e.touches[0].pageX
+        colScrollLeft.current = colScrollRef.current.scrollLeft
+    }
+
+    const handleColTouchEnd = () => {
+        colIsDown.current = false
+    }
+
+    const handleColTouchMove = (e) => {
+        if (!colIsDown.current) return
+
+        const walk = e.touches[0].pageX - colStartX.current
+
+        colScrollRef.current.scrollLeft = colScrollLeft.current - walk
+    }
+
     return (
         <div
             style={{
@@ -218,9 +257,15 @@ export default function SeatMap2() {
                 onMouseLeave={handleMouseLeave}
                 onMouseUp={handleMouseUp}
                 onMouseMove={handleMouseMove}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+                onTouchMove={handleTouchMove}
                 style={{
-                    overflowX: 'hidden',
+                    overflowX: 'scroll',
                     overflowY: 'hidden',
+                    WebkitOverflowScrolling: 'touch',
+                    scrollbarWidth: 'none',
+                    msOverflowStyle: 'none',
                     cursor: 'grab',
                     background: 'white'
                 }}
@@ -264,6 +309,9 @@ export default function SeatMap2() {
                     onMouseLeave={handleColMouseLeave}
                     onMouseUp={handleColMouseUp}
                     onMouseMove={handleColMouseMove}
+                    onTouchStart={handleColTouchStart}
+                    onTouchEnd={handleColTouchEnd}
+                    onTouchMove={handleColTouchMove}
                     style={{
                         overflowX: 'auto',
                         scrollbarWidth: 'none',

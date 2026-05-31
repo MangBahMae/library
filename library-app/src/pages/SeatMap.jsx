@@ -35,6 +35,25 @@ export default function SeatMap() {
     containerRef.current.scrollLeft = scrollLeft.current - walk
   }
 
+  const handleTouchStart = (e) => {
+    isDown.current = true
+    startX.current = e.touches[0].pageX - containerRef.current.offsetLeft
+    scrollLeft.current = containerRef.current.scrollLeft
+  }
+
+  const handleTouchEnd = () => {
+    isDown.current = false
+  }
+
+  const handleTouchMove = (e) => {
+    if (!isDown.current) return
+
+    const x = e.touches[0].pageX - containerRef.current.offsetLeft
+    const walk = (x - startX.current) * 1.5
+
+    containerRef.current.scrollLeft = scrollLeft.current - walk
+  }
+
   return (
     <div
       style={{
@@ -162,10 +181,15 @@ export default function SeatMap() {
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onTouchMove={handleTouchMove}
         style={{
-          overflowX: 'hidden',
+          overflowX: 'scroll',
           overflowY: 'hidden',
           WebkitOverflowScrolling: 'touch',
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
           cursor: 'grab',
           background: 'white'
         }}
